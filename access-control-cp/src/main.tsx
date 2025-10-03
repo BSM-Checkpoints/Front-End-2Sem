@@ -3,8 +3,18 @@ import { createRoot } from 'react-dom/client'
 import App from './App.tsx'
 import './globals.css'
 
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Error  from './routes/Error/index.tsx'
+import Cadastro from './routes/Cadastro/index.tsx'
+
+const router = createBrowserRouter([
+  {path: '/login', element: <App />, errorElement: <Error />, children: [
+    { path: "/cadastro", element: <Cadastro /> }
+  ]},
+])
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
