@@ -1,1 +1,15 @@
 @import "tailwindcss";
+
+:root {
+    /* Cores */
+    --color-blue: #0051ff49;
+    --color-white: #ffffff;
+    --bg-transparent-01: rgba(255, 255, 255, 0.1);
+    --bg-transparent-02: rgba(255, 255, 255, 0.2);
+    --border-transparent-02: rgba(255, 255, 255, 0.2);
+    --border-transparent-03: rgba(255, 255, 255, 0.3);
+    --placeholder-gray-300: #d1d5dc;
+
+    /* Hovers */
+    --color-blue-hover: #0051ff80;
+}
