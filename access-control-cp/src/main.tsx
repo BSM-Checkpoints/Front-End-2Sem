@@ -6,10 +6,13 @@ import './globals.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Error  from './routes/Error/index.tsx'
 import Cadastro from './routes/Cadastro/index.tsx'
+import Login from './routes/Login/index.tsx'
+
 
 const router = createBrowserRouter([
-  {path: '/login', element: <App />, errorElement: <Error />, children: [
-    { path: "/cadastro", element: <Cadastro /> }
+  {path: '/', element: <App />, errorElement: <Error />, children: [
+    { path: "/", element: <Login /> },
+    { path: "/cadastro", element: <Cadastro/> }
   ]},
 ])
 
