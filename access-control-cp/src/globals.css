@@ -3,6 +3,7 @@
 :root {
     /* Cores */
     --color-blue: #0051ff49;
+    --buttons-color: rgba(2,56,170,0.6);
     --color-white: #ffffff;
     --color-red: #f87171;
     --bg-transparent-01: rgba(255, 255, 255, 0.1);
