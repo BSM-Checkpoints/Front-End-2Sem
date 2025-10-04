@@ -22,40 +22,41 @@ export default function Login() {
                     </div>
                     <div className="flex flex-col gap-1 ml-6 mt-59">
                         <p className="text-lg">Não possui uma conta?</p>
-                        <Link to="/cadastro" className="text-center text-lg font-semibold w-[150px] mt-3 py-2 rounded-xl border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition">
-                            Criar Conta
+                        <Link to="/cadastro" className="text-center text-xl font-semibold w-[150px] mt-3 py-2 rounded-xl border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition">
+                            Criar conta
                         </Link>
                     </div>
                 </div>
 
                 <hr className=" flex self-center border-1 h-[450px] border-[var(--border-transparent-02)]"></hr>
 
-                <div className="flex flex-col justify-center p-10 w-1/2">
-                    <h2 className="text-5xl text-center font-semibold mb-6">Login</h2>
-                    <form onSubmit={handleSubmit(aoSubmeter)} className="flex flex-col space-y-4">
+                <div className="flex flex-col w-1/2">
+                    <h2 className="text-5xl text-center font-bold mt-10 mb-7">Login</h2>
+                    <form onSubmit={handleSubmit(aoSubmeter)} className="flex flex-col px-10">
 
-                        <label>Nome:</label>
-                        <input type="text" placeholder="Digite seu nome ou usuário" {...register("nomeUsuario", { required: "O nome/usuário é obrigatório!" })}
-                            className="px-4 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)] text-[var(--color-white)]
-                            placeholder-[--placeholder-grey-300] focus:outline-none"/>
+                        <label className="mb-2 text-2xl font-semibold">Nome:</label>
+                        <input type="text" placeholder="Digite seu nome ou usuário" {...register("nomeUsuario", { required: "O nome/usuário é obrigatório!"})}
+                            className="px-3 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)
+                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"/>
                             {errors.nomeUsuario && (
-                                <p className="text-[var(--color-red)] text-sm">{errors.nomeUsuario.message}</p>
+                                <p className="w-[240px] p-2 rounded-2xl mt-2 text-[var(--color-red)] text-md border-1 border-[var(--color-red)]">{errors.nomeUsuario.message}</p>
                             )}
 
-                        <label>E-mail:</label>
+                        <label className="mb-2 mt-3 text-2xl font-semibold">E-mail:</label>
                         <input type="email" placeholder="Digite seu e-mail" {...register("email", {
-                            required: "O e-mail é obrigatório!",
+                            required: "O E-mail é obrigatório!",
                             pattern: {
                                 value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                                 message: "Formato de e-mail inválido! E-mail deve conter @ e ."
                             }
-                        })} className=" px-4 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)] text-[var(--color-white)]
-                        placeholder-[--placeholder-grey-300] focus:outline-none"/>
+                        })} className="px-3 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)
+                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"/>
                         {errors.email && (
-                            <p className="text-[var(--color-red)] text-sm">{errors.email.message}</p>
+                            <p className="w-[180px] p-2 rounded-2xl mt-2 text-[var(--color-red)] text-md border-1 border-[var(--color-red)]">{errors.email.message}</p>
                         )}
 
-                        <button type="submit" className="mt-4 px-4 py-2 rounded-xl bg-[var(--color-blue)] hover:bg-[var(--color-blue-hover)] transition cursor-pointer">
+                        <button type="submit" className="self-center text-center text-2xl font-semibold w-[120px] mt-8 py-2 rounded-xl
+                        border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition">
                             Entrar
                         </button>
 
