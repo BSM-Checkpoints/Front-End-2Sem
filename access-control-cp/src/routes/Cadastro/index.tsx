@@ -1,12 +1,11 @@
 import ContainerBemVindo from "../../components/ContainerBemVindo";
-import type { LoginType } from "../../types/login";
 import { useForm } from "react-hook-form";
 import type { CadastroType } from "../../types/cadastro";
 
 export default function Cadastro() {
     const { register, handleSubmit, formState: { errors}, } = useForm<CadastroType>()
 
-    const aoSubmeter = (dados: LoginType) => {
+    const aoSubmeter = (dados: CadastroType) => {
         console.log(dados)
     }
 
@@ -27,7 +26,7 @@ export default function Cadastro() {
                 titulo="Seja bem vindo"
                 subtitulo="Estamos feliz em ter você aqui!"
                 pergunta="Já possui uma conta?"
-                rota="/login"
+                rota="/"
                 mensagemRota="Entrar"
             />
         {/* Coluna do Formulário */}
