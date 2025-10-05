@@ -1,3 +1,5 @@
+import ContainerBemVindo from "../../components/ContainerBemVindo";
+
 export default function Cadastro() {
   return (
     <main
@@ -12,7 +14,13 @@ export default function Cadastro() {
       backdrop-blur-sm text-[var(--color-white)] border-1
       "
       >
-        
+         <ContainerBemVindo 
+                titulo="Seja bem vindo"
+                subtitulo="Estamos feliz em ter você aqui!"
+                pergunta="Já possui uma conta?"
+                rota="/login"
+                mensagemRota="Entrar"
+            />
       </div>
     </main>
   );
