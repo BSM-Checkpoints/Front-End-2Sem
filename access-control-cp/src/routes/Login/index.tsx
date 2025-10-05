@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
 import type { LoginType } from "../../types/login";
 import { useForm } from "react-hook-form";
+import ContainerBemVindo from "../../components/ContainerBemVindo";
 
 export default function Login() {
 
@@ -13,23 +14,13 @@ export default function Login() {
     return (
         <main className="w-screen h-screen bg-repeat bg-cover bg-center bg-[linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg-fundo.png')] flex items-center justify-center">
             <div className="flex w-[90%] flex-col h-fit rounded-2xl shadow-lg bg-[var(--bg-transparent-01)] backdrop-blur-sm text-[var(--color-white)] border-1 sm:w-[75%] lg:flex-row lg:w-[80%] xl:w-[65%]">
-                <div className="lg:ml-5 lg:w-1/2">
-                    <div className="text-center lg:text-start ">
-                        <h1 className="text-4xl font-bold my-5
-                        sm:text-5xl md:mt-10 lg:mt-8">Seja bem-vindo!</h1>
-
-                        <p className="text-lg px-2 sm:text-2xl">
-                            Estamos felizes em ter você aqui novamente!
-                        </p>
-                    </div>
-                    <div className="flex flex-col items-center justify-center gap-1 mt-10
-                    md:mt-15 lg:items-start lg:mt-63 xl:mt-56 ">
-                        <p className="text-lg sm:text-xl">Não possui uma conta?</p>
-                        <Link to="/cadastro" className="text-center text-xl font-semibold w-[150px] mt-3 py-2 rounded-xl border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition md:w-[180px] md:py-3 md:text-2xl">
-                            Criar conta
-                        </Link>
-                    </div>
-                </div>
+                <ContainerBemVindo 
+                    titulo="Seja bem vindo"
+                    subtitulo="Estamos feliz em ter você aqui novamente!"
+                    pergunta="Não possui uma conta?"
+                    rota="/cadastro"
+                    mensagemRota="Criar Conta"
+                />
 
                 <hr className="flex self-center border-1 w-[90%] border-[var(--border-transparent-02)] my-8 lg:h-[450px] lg:w-0"></hr>
 
