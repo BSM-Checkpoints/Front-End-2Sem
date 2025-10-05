@@ -60,7 +60,7 @@ export default function Login() {
                     <form onSubmit={handleSubmit(aoSubmeter)} className="flex flex-col px-7 sm:px-20 lg:px-10">
 
                         <label className="mb-1 text-2xl font-semibold">Nome:</label>
-                        <input type="text" placeholder="Digite seu nome ou usuário" {...register("nomeUsuario", { required: "O nome/usuário é obrigatório!"})}
+                        <input type="text" placeholder="Digite seu nome de usuário" {...register("nomeUsuario", { required: "O nome/usuário é obrigatório!"})}
                             className="px-3 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)
                             text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none md:py-3 "/>
                             {errors.nomeUsuario && (
