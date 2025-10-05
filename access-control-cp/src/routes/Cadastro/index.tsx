@@ -26,6 +26,8 @@ export default function Cadastro() {
       body: JSON.stringify(dados),
     });
 
+    localStorage.setItem("usuarioCadastrado", JSON.stringify(dados));
+
     alert("Usuário cadastrado com sucesso!");
   } catch (error) {
     console.error("Erro ao cadastrar usuário:", error);
