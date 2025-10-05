@@ -5,9 +5,32 @@ import type { CadastroType } from "../../types/cadastro";
 export default function Cadastro() {
   const { register, handleSubmit, formState: { errors } } = useForm<CadastroType>();
 
-  const aoSubmeter = (dados: CadastroType) => {
-    console.log(dados);
-  };
+  const aoSubmeter = async (dados: CadastroType) => {
+  try {
+    const resposta = await fetch("http://localhost:3001/usuarios");
+    const usuarios: CadastroType[] = await resposta.json();
+
+    const usuarioExiste = usuarios.find(
+      (usuario) =>
+        usuario.nomeUsuario === dados.nomeUsuario || usuario.email === dados.email
+    );
+
+    if (usuarioExiste) {
+      alert("Usuário ou e-mail já cadastrado!");
+      return;
+    }
+
+    await fetch("http://localhost:3001/usuarios", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dados),
+    });
+
+    alert("Usuário cadastrado com sucesso!");
+  } catch (error) {
+    console.error("Erro ao cadastrar usuário:", error);
+  }
+};
 
   return (
     <main
