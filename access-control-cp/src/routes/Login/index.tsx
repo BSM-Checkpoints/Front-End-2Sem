@@ -16,15 +16,14 @@ export default function Login() {
             sm:w-[75%]">
                 <div>
                     <div>
-                        <h1 className="text-4xl font-bold text-center my-5 sm:text-5xl">Seja bem-vindo!</h1>
+                        <h1 className="text-4xl font-bold text-center my-5 sm:text-5xl md:mt-10">Seja bem-vindo!</h1>
                         <p className="text-lg text-center px-2 sm:text-2xl">
                             Estamos felizes em ter você aqui novamente!
                         </p>
                     </div>
-                    <div className="flex flex-col items-center justify-center gap-1 mt-10">
+                    <div className="flex flex-col items-center justify-center gap-1 mt-10 md:mt-15">
                         <p className="text-lg sm:text-xl">Não possui uma conta?</p>
-                        <Link to="/cadastro" className="text-center text-xl font-semibold w-[150px] mt-3 py-2 rounded-xl border-1 bg-[var(--buttons-color)]
-                        hover:bg-[var(--color-blue-hover)] transition">
+                        <Link to="/cadastro" className="text-center text-xl font-semibold w-[150px] mt-3 py-2 rounded-xl border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition md:w-[180px] md:py-3 md:text-2xl">
                             Criar conta
                         </Link>
                     </div>
@@ -36,15 +35,15 @@ export default function Login() {
                     <h2 className="text-5xl text-center font-bold mb-7">Login</h2>
                     <form onSubmit={handleSubmit(aoSubmeter)} className="flex flex-col px-7 sm:px-20">
 
-                        <label className="mb-2 text-2xl font-semibold">Nome:</label>
+                        <label className="mb-1 text-2xl font-semibold">Nome:</label>
                         <input type="text" placeholder="Digite seu nome ou usuário" {...register("nomeUsuario", { required: "O nome/usuário é obrigatório!"})}
                             className="px-3 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)
-                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"/>
+                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none md:py-3"/>
                             {errors.nomeUsuario && (
                                 <p className="w-[240px] p-2 rounded-2xl mt-2 text-[var(--color-red)] text-md border-1 border-[var(--color-red)]">{errors.nomeUsuario.message}</p>
                             )}
 
-                        <label className="mb-2 mt-8 text-2xl font-semibold">E-mail:</label>
+                        <label className="mb-1 mt-10 text-2xl font-semibold">E-mail:</label>
                         <input type="email" placeholder="Digite seu e-mail" {...register("email", {
                             required: "O E-mail é obrigatório!",
                             pattern: {
@@ -52,7 +51,7 @@ export default function Login() {
                                 message: "Formato de e-mail inválido! E-mail deve conter @ e ."
                             }
                         })} className="px-3 py-2 rounded-xl bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)
-                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"/>
+                            text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none md:py-3"/>
                         {errors.email && (
                             <p className="w-[180px] p-2 rounded-2xl mt-2 text-[var(--color-red)] text-md border-1 border-[var(--color-red)]">{errors.email.message}</p>
                         )}
