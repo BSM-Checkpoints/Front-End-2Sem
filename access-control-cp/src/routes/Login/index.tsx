@@ -4,29 +4,43 @@ import ContainerBemVindo from "../../components/ContainerBemVindo";
 
 export default function Login() {
 
-    const { register, handleSubmit, formState: { errors }, } = useForm<LoginType>()
+    const { register, handleSubmit, setError ,formState: { errors }, } = useForm<LoginType>()
 
     const aoSubmeter = async (dados: LoginType) => {
         try {
             const resposta = await fetch("http://localhost:3001/usuarios");
             const usuarios: LoginType[] = await resposta.json();
 
-            const usuarioValido = usuarios.find(
-            (u) =>
-                u.nomeUsuario === dados.nomeUsuario && u.email === dados.email
+            const usuarioPorNome = usuarios.find(
+                (usuario) => usuario.nomeUsuario === dados.nomeUsuario
             );
 
-            if (!usuarioValido) {
-            alert("Usuário não encontrado!");
-            return;
+            if (!usuarioPorNome) {
+                setError("nomeUsuario", {
+                type: "manual",
+                message: "Usuário não encontrado!",
+                });
             }
 
-            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
-            alert(`Bem-vindo, ${usuarioValido.nomeUsuario}!`);
+            const usuarioPorEmail = usuarios.find((u) => u.email === dados.email);
+
+            if (!usuarioPorEmail) {
+                setError("email", {
+                type: "manual",
+                message: "E-mail não encontrado!",
+                });
+            }
+
+            if (!usuarioPorNome || !usuarioPorEmail) {
+                return;
+            }
+
+            localStorage.setItem("usuarioLogado", JSON.stringify(dados));
+            alert(`Bem-vindo, ${dados.nomeUsuario}!`);
         } catch (error) {
             console.error("Erro ao fazer login:", error);
         }
-    };
+    }
 
     return (
         <main className="w-screen h-screen bg-repeat bg-cover bg-center bg-[linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg-fundo.png')] flex items-center justify-center">
