@@ -6,9 +6,27 @@ export default function Login() {
 
     const { register, handleSubmit, formState: { errors }, } = useForm<LoginType>()
 
-    const aoSubmeter = (dados: LoginType) => {
-        console.log(dados)
-    }
+    const aoSubmeter = async (dados: LoginType) => {
+        try {
+            const resposta = await fetch("http://localhost:3001/usuarios");
+            const usuarios: LoginType[] = await resposta.json();
+
+            const usuarioValido = usuarios.find(
+            (u) =>
+                u.nomeUsuario === dados.nomeUsuario && u.email === dados.email
+            );
+
+            if (!usuarioValido) {
+            alert("Usuário não encontrado!");
+            return;
+            }
+
+            localStorage.setItem("usuarioLogado", JSON.stringify(usuarioValido));
+            alert(`Bem-vindo, ${usuarioValido.nomeUsuario}!`);
+        } catch (error) {
+            console.error("Erro ao fazer login:", error);
+        }
+    };
 
     return (
         <main className="w-screen h-screen bg-repeat bg-cover bg-center bg-[linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg-fundo.png')] flex items-center justify-center">
