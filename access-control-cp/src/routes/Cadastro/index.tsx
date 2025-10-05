@@ -3,20 +3,34 @@ import { useForm } from "react-hook-form";
 import type { CadastroType } from "../../types/cadastro";
 
 export default function Cadastro() {
-  const { register, handleSubmit, formState: { errors } } = useForm<CadastroType>();
+  const { register, handleSubmit, setError ,formState: { errors } } = useForm<CadastroType>();
 
   const aoSubmeter = async (dados: CadastroType) => {
   try {
     const resposta = await fetch("http://localhost:3001/usuarios");
     const usuarios: CadastroType[] = await resposta.json();
 
-    const usuarioExiste = usuarios.find(
-      (usuario) =>
-        usuario.nomeUsuario === dados.nomeUsuario || usuario.email === dados.email
+    const usuarioComMesmoNome = usuarios.find(
+      (usuario) => usuario.nomeUsuario === dados.nomeUsuario
     );
 
-    if (usuarioExiste) {
-      alert("Usuário ou e-mail já cadastrado!");
+    if (usuarioComMesmoNome) {
+      setError("nomeUsuario", {
+        type: "manual",
+        message: "Esse nome de usuário já está sendo usado!",
+      });
+      return;
+    }
+
+    const usuarioComMesmoEmail = usuarios.find(
+      (usuario) => usuario.email === dados.email
+    );
+
+    if (usuarioComMesmoEmail) {
+      setError("email", {
+        type: "manual",
+        message: "Esse e-mail já está sendo usado!",
+      });
       return;
     }
 
