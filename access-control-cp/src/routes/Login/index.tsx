@@ -37,13 +37,15 @@ export default function Login() {
 
             localStorage.setItem("usuarioLogado", JSON.stringify(dados));
             alert(`Bem-vindo, ${dados.nomeUsuario}!`);
+
+            window.location.reload();
         } catch (error) {
             console.error("Erro ao fazer login:", error);
         }
     }
 
     return (
-        <main className="w-screen h-screen bg-repeat bg-cover bg-center bg-[linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg-fundo.png')] flex items-center justify-center">
+        <main className="w-screen min-h-screen bg-repeat bg-cover bg-center bg-[linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('bg-fundo.png')] flex items-center justify-center">
             <div className="flex w-[90%] flex-col h-fit rounded-2xl shadow-lg bg-[var(--bg-transparent-01)] backdrop-blur-sm text-[var(--color-white)] border-1 sm:w-[75%] lg:flex-row lg:w-[80%] xl:w-[65%]">
                 <ContainerBemVindo 
                     titulo="Seja bem vindo"
