@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import type { LoginType } from "../../types/login";
 import { useForm } from "react-hook-form";
 import ContainerBemVindo from "../../components/ContainerBemVindo";
@@ -50,7 +49,7 @@ export default function Login() {
                         )}
 
                         <button type="submit" className="self-center text-center text-2xl font-semibold w-[120px] my-6 py-2 rounded-xl
-                        border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition">
+                        border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition cursor-pointer">
                             Entrar
                         </button>
 
