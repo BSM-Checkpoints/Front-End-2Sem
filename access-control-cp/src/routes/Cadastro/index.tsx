@@ -3,11 +3,11 @@ import { useForm } from "react-hook-form";
 import type { CadastroType } from "../../types/cadastro";
 
 export default function Cadastro() {
-    const { register, handleSubmit, formState: { errors}, } = useForm<CadastroType>()
+  const { register, handleSubmit, formState: { errors } } = useForm<CadastroType>();
 
-    const aoSubmeter = (dados: CadastroType) => {
-        console.log(dados)
-    }
+  const aoSubmeter = (dados: CadastroType) => {
+    console.log(dados);
+  };
 
   return (
     <main
@@ -17,73 +17,93 @@ export default function Cadastro() {
         bg-[linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)),url('/bg-fundo.png')]
       "
     >
-      <div className="
-      flex w-4xl h-[500px] rounded-2xl shadow-lg bg-[var(--bg-transparent-01)]
-      backdrop-blur-sm text-[var(--color-white)] border-1
-      "
+      <div
+        className="flex w-[90%] flex-col h-fit rounded-2xl shadow-lg bg-[var(--bg-transparent-01)]
+        backdrop-blur-sm text-[var(--color-white)] border-3 border-[var(--border-transparent-02)]
+        sm:w-[70%] md:w-[60%] lg:flex-row lg:w-[70%] xl:w-[55%]"
       >
-         <ContainerBemVindo 
-                titulo="Seja bem vindo"
-                subtitulo="Estamos feliz em ter você aqui!"
-                pergunta="Já possui uma conta?"
-                rota="/"
-                mensagemRota="Entrar"
-            />
-        {/* Coluna do Formulário */}
-        <div className="flex flex-col justify-center p-10 w-1/2 border-l border-[var(--border-transparent-02)]">
-          <h2 className="text-4xl text-center font-semibold mb-6">Criar Conta</h2>
-          <form 
-          onSubmit={handleSubmit(aoSubmeter)}
-          className="flex flex-col space-y-4">
+        <ContainerBemVindo
+          titulo="Seja bem vindo"
+          subtitulo="Estamos feliz em ter você aqui!"
+          pergunta="Já possui uma conta?"
+          rota="/"
+          mensagemRota="Entrar"
+        />
+
+        <hr className="flex self-center border w-[90%] border-[var(--border-transparent-02)] my-6 lg:h-[420px] lg:w-0" />
+
+        <div className="flex flex-col lg:w-1/2 px-6 py-1 lg:py-10">
+          <h2 className="text-3xl text-center font-bold mb-3">Criar Conta</h2>
+          <form
+            onSubmit={handleSubmit(aoSubmeter)}
+            className="flex flex-col px-2 sm:px-6 lg:gap-1.5"
+          >
+            <label className="mb-1 text-lg font-semibold">Nome:</label>
             <input
               type="text"
-              placeholder="Nome"
-              {...register("nome", {
-                required: "O nome é obrigatório"
-              })}
+              placeholder="Digite seu nome ou usuário"
+              {...register("nome", { required: "O nome/usuário é obrigatório!" })}
               className="
-              px-4 py-2 rounded-xl
-            bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
-             text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"
+                w-full px-3 py-2 rounded-lg 
+                bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
+                text-[var(--color-white)] placeholder-[--placeholder-grey-300] 
+                focus:outline-none
+                transition-all duration-200
+                text-sm
+              "
             />
             {errors.nome && (
-                <p className="text-[var(--color-red)] text-sm">{errors.nome.message}</p>
+              <p className="mt-1 text-[var(--color-red)] text-sm">{errors.nome.message}</p>
             )}
+
+            <label className="mb-1 mt-3 text-lg font-semibold">Nome de Usuário:</label>
             <input
               type="text"
-              placeholder="NomeUsuário"
+              placeholder="Digite seu nome de Usuário"
               {...register("nomeUsuario", {
-                required: "O nome usuário é obrigatório"
+                required: "O NomeUsuario é obrigatório!",
               })}
               className="
-              px-4 py-2 rounded-xl
-            bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
-             text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"
+                w-full px-3 py-2 rounded-lg 
+                bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
+                text-[var(--color-white)] placeholder-[--placeholder-grey-300] 
+                focus:outline-none
+                transition-all duration-200
+                text-sm
+              "
             />
             {errors.nomeUsuario && (
-                <p className="text-[var(--color-red)] text-sm">{errors.nomeUsuario.message}</p>
+              <p className="mt-1 text-[var(--color-red)] text-sm">{errors.nomeUsuario.message}</p>
             )}
+
+            <label className="mb-1 mt-3 text-lg font-semibold">E-mail:</label>
             <input
               type="email"
-              placeholder="E-mail"
+              placeholder="Digite seu e-mail"
               {...register("email", {
-                required: "O e-mail é obrigatório",
+                required: "O E-mail é obrigatório!",
                 pattern: {
-                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                    message: "Formato de e-mail inválido"
-                }
+                  value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                  message: "Formato de e-mail inválido! E-mail deve conter @ e .",
+                },
               })}
               className="
-              px-4 py-2 rounded-xl
-            bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
-             text-[var(--color-white)] placeholder-[--placeholder-grey-300] focus:outline-none"
+                w-full px-3 py-2 rounded-lg 
+                bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
+                text-[var(--color-white)] placeholder-[--placeholder-grey-300] 
+                focus:outline-none
+                transition-all duration-200
+                text-sm
+              "
             />
             {errors.email && (
-                <p className="text-[var(--color-red)] text-sm">{errors.email.message}</p>
-              )}
+              <p className="mt-1 text-[var(--color-red)] text-sm">{errors.email.message}</p>
+            )}
+
             <button
               type="submit"
-              className="mt-4 px-4 py-2 rounded-xl bg-[var(--color-blue)] hover:bg-[var(--color-blue-hover)] transition cursor-pointer"
+              className="self-center text-center text-2xl font-semibold mt-5 py-2 px-6 rounded-xl
+              border-1 bg-[var(--buttons-color)] hover:bg-[var(--color-blue-hover)] transition cursor-pointer"
             >
               Criar Conta
             </button>
