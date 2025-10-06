@@ -32,7 +32,8 @@ A aplicação permite **cadastro e login de usuários**, com validação de dado
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/access-control-cp.git
+git clone https://github.com/BSM-Checkpoints/Front-End-2Sem.git
+cd Front-End-2Sem/
 cd access-control-cp
 ```
 
