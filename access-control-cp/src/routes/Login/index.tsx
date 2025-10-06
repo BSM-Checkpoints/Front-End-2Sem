@@ -36,7 +36,6 @@ export default function Login() {
             }
 
             localStorage.setItem("usuarioLogado", JSON.stringify(dados));
-            alert(`Bem-vindo, ${dados.nomeUsuario}!`);
 
             window.location.reload();
         } catch (error) {
