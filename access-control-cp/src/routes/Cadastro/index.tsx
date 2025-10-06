@@ -58,8 +58,8 @@ export default function Cadastro() {
     >
       <div
         className="flex w-[90%] flex-col h-fit rounded-2xl shadow-lg bg-[var(--bg-transparent-01)]
-        backdrop-blur-sm text-[var(--color-white)] border-3 border-[var(--border-transparent-02)]
-        sm:w-[70%] md:w-[60%] lg:flex-row lg:w-[70%] xl:w-[55%]"
+        backdrop-blur-sm text-[var(--color-white)] border-3 border-[var(--border-transparent-02)] mt-10 py-1
+        sm:w-[70%] sm:mt-20 md:w-[60%] lg:flex-row lg:w-[70%] xl:w-[55%]"
       >
         <ContainerBemVindo
           titulo="Seja bem vindo"
@@ -72,7 +72,7 @@ export default function Cadastro() {
         <hr className="flex self-center border w-[90%] border-[var(--border-transparent-02)] my-6 lg:h-[420px] lg:w-0" />
 
         <div className="flex flex-col lg:w-1/2 px-6 py-1 lg:py-10">
-          <h2 className="text-3xl text-center font-bold mb-3">Criar Conta</h2>
+          <h2 className="text-4xl text-center font-bold mb-3">Criar Conta</h2>
           <form
             onSubmit={handleSubmit(aoSubmeter)}
             className="flex flex-col px-2 sm:px-6 lg:gap-1.5"
@@ -80,8 +80,8 @@ export default function Cadastro() {
             <label className="mb-1 text-lg font-semibold">Nome:</label>
             <input
               type="text"
-              placeholder="Digite seu nome ou usuário"
-              {...register("nome", { required: "O nome/usuário é obrigatório!" })}
+              placeholder="Digite seu nome"
+              {...register("nome", { required: "O nome é obrigatório!" })}
               className="
                 w-full px-3 py-2 rounded-lg 
                 bg-[var(--bg-transparent-02)] border border-[var(--border-transparent-03)]
@@ -98,9 +98,9 @@ export default function Cadastro() {
             <label className="mb-1 mt-3 text-lg font-semibold">Nome de Usuário:</label>
             <input
               type="text"
-              placeholder="Digite seu nome de Usuário"
+              placeholder="Digite seu nome de usuário"
               {...register("nomeUsuario", {
-                required: "O NomeUsuario é obrigatório!",
+                required: "O nome do usuario é obrigatório!",
               })}
               className="
                 w-full px-3 py-2 rounded-lg 
