@@ -40,9 +40,9 @@ export default function Cadastro() {
       body: JSON.stringify(dados),
     });
 
-    localStorage.setItem("usuarioCadastrado", JSON.stringify(dados));
+    localStorage.setItem("usuarioLogado", JSON.stringify(dados));
+    window.location.reload();
 
-    alert("Usuário cadastrado com sucesso!");
   } catch (error) {
     console.error("Erro ao cadastrar usuário:", error);
   }
