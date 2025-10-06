@@ -1,22 +1,5 @@
 {
   "usuarios": [
-    {
-      "id": 1,
-      "nome": "Moisés",
-      "nomeUsuario": "MrBarsoti",
-      "email": "moises@gmail.com"
-    },
-    {
-      "id": "9bdf",
-      "nome": "Moises",
-      "nomeUsuario": "MrBarsoti2",
-      "email": "moises.barsot11@gmail.com"
-    },
-    {
-      "id": "a80f",
-      "nome": "Moises",
-      "nomeUsuario": "MrBarsoti3",
-      "email": "moises.barsot12@gmail.com"
-    }
+    
   ]
 }
